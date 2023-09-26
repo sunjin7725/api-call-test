@@ -2,7 +2,10 @@ module github.com/sunjin7725/api-call-test
 
 go 1.21.1
 
-require github.com/spf13/viper v1.16.0
+require (
+	github.com/davecgh/go-spew v1.1.1
+	github.com/spf13/viper v1.16.0
+)
 
 require (
 	github.com/fsnotify/fsnotify v1.6.0 // indirect
