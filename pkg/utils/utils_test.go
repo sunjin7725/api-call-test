@@ -7,7 +7,8 @@ import (
 )
 
 func TestCallApi(t *testing.T) {
-	const url string = "url test"
-	return_val := utils.CallApi(url, "post")
-	t.Log(return_val)
+	url := "http://openapi.foodsafetykorea.go.kr/api/sample/I2790/json/1/5"
+	header, data := utils.CallApi(url, "GET", nil)
+	t.Log(header)
+	t.Log(data)
 }

@@ -8,7 +8,7 @@ import (
 )
 
 func TestLoadConfig(t *testing.T) {
-	config := configs.LoadConfig("config.dev.toml")
+	config := configs.LoadConfig()
 	if reflect.TypeOf(config.API_KEY).Kind() != reflect.String {
 		t.Log(config)
 		t.Error("Cannot read config")
