@@ -1,4 +1,4 @@
-package food_api
+package food_db
 
 import (
 	"encoding/json"
@@ -46,7 +46,15 @@ type RowItem struct {
 	NutrCont9          stringToFloat32 `json:"NUTR_CONT9"`
 }
 
-func (resp Response) PrintJson() {
+func (resp Response) toJson() string {
+	json_data, err := json.MarshalIndent(resp, "", "  ")
+	if err != nil {
+		panic(err)
+	}
+	return string(json_data)
+}
+
+func (resp Response) printJson() {
 	json_data, err := json.MarshalIndent(resp, "", "  ")
 	if err != nil {
 		panic(err)

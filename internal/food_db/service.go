@@ -1,4 +1,4 @@
-package food_api
+package food_db
 
 import (
 	"encoding/json"
