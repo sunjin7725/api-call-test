@@ -1,0 +1,193 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "Sample API for food db.",
+        "title": "Food DB API",
+        "contact": {
+            "name": "Seon Jin Kim",
+            "url": "https://sunjin7725.github.io",
+            "email": "sunjin7725@gmail.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0"
+    },
+    "host": "localhost:8080",
+    "basePath": "/",
+    "paths": {
+        "/foodData": {
+            "get": {
+                "description": "get food data",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "food"
+                ],
+                "summary": "Get food data",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "page",
+                        "name": "page",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "per page",
+                        "name": "perPage",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "search keyword",
+                        "name": "searchKeyword",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/food_db.Response"
+                        }
+                    },
+                    "400": {
+                        "description": "Request Error",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found Error",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "food_db.I2790": {
+            "type": "object",
+            "properties": {
+                "RESULT": {
+                    "$ref": "#/definitions/food_db.StatusResult"
+                },
+                "row": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/food_db.RowItem"
+                    }
+                },
+                "total_count": {
+                    "type": "integer"
+                }
+            }
+        },
+        "food_db.Response": {
+            "type": "object",
+            "properties": {
+                "I2790": {
+                    "$ref": "#/definitions/food_db.I2790"
+                }
+            }
+        },
+        "food_db.RowItem": {
+            "type": "object",
+            "properties": {
+                "DESC_KOR": {
+                    "type": "string"
+                },
+                "FOOD_CD": {
+                    "type": "string"
+                },
+                "GROUP_NAME": {
+                    "type": "string"
+                },
+                "MAKER_NAME": {
+                    "type": "string"
+                },
+                "NUM": {
+                    "type": "integer"
+                },
+                "NUTR_CONT1": {
+                    "type": "number"
+                },
+                "NUTR_CONT2": {
+                    "type": "number"
+                },
+                "NUTR_CONT3": {
+                    "type": "number"
+                },
+                "NUTR_CONT4": {
+                    "type": "number"
+                },
+                "NUTR_CONT5": {
+                    "type": "number"
+                },
+                "NUTR_CONT6": {
+                    "type": "number"
+                },
+                "NUTR_CONT7": {
+                    "type": "number"
+                },
+                "NUTR_CONT8": {
+                    "type": "number"
+                },
+                "NUTR_CONT9": {
+                    "type": "number"
+                },
+                "RESEARCH_YEAR": {
+                    "type": "string"
+                },
+                "SAMPLING_MONTH_CD": {
+                    "type": "string"
+                },
+                "SAMPLING_MONTH_NAME": {
+                    "type": "string"
+                },
+                "SAMPLING_REGION_CD": {
+                    "type": "string"
+                },
+                "SAMPLING_REGION_NAME": {
+                    "type": "string"
+                },
+                "SERVING_SIZE": {
+                    "type": "integer"
+                },
+                "SUB_REF_NAME": {
+                    "type": "string"
+                }
+            }
+        },
+        "food_db.StatusResult": {
+            "type": "object",
+            "properties": {
+                "CODE": {
+                    "type": "string"
+                },
+                "MSG": {
+                    "type": "string"
+                }
+            }
+        }
+    },
+    "securityDefinitions": {
+        "BasicAuth": {
+            "type": "basic"
+        }
+    }
+}

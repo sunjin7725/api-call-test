@@ -47,19 +47,19 @@ type RowItem struct {
 }
 
 func (resp Response) toJson() string {
-	json_data, err := json.MarshalIndent(resp, "", "  ")
+	jsonData, err := json.MarshalIndent(resp, "", "  ")
 	if err != nil {
 		panic(err)
 	}
-	return string(json_data)
+	return string(jsonData)
 }
 
 func (resp Response) printJson() {
-	json_data, err := json.MarshalIndent(resp, "", "  ")
+	jsonData, err := json.MarshalIndent(resp, "", "  ")
 	if err != nil {
 		panic(err)
 	}
-	fmt.Println(string(json_data))
+	fmt.Println(string(jsonData))
 }
 
 type stringToFloat32 float32
@@ -67,19 +67,19 @@ type stringToFloat32 float32
 type stringToInt int
 
 func (v *stringToFloat32) UnmarshalJSON(data []byte) error {
-	return_val, err := strconv.ParseFloat(strings.ReplaceAll(string(data), "\"", ""), 32)
+	returnVal, err := strconv.ParseFloat(strings.ReplaceAll(string(data), "\"", ""), 32)
 	if err != nil {
 		panic(err)
 	}
-	*v = stringToFloat32(return_val)
+	*v = stringToFloat32(returnVal)
 	return err
 }
 
 func (v *stringToInt) UnmarshalJSON(data []byte) error {
-	return_val, err := strconv.Atoi(strings.ReplaceAll(string(data), "\"", ""))
+	returnVal, err := strconv.Atoi(strings.ReplaceAll(string(data), "\"", ""))
 	if err != nil {
 		panic(err)
 	}
-	*v = stringToInt(return_val)
+	*v = stringToInt(returnVal)
 	return err
 }

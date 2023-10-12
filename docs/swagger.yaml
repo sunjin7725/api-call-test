@@ -1,0 +1,127 @@
+basePath: /
+definitions:
+  food_db.I2790:
+    properties:
+      RESULT:
+        $ref: '#/definitions/food_db.StatusResult'
+      row:
+        items:
+          $ref: '#/definitions/food_db.RowItem'
+        type: array
+      total_count:
+        type: integer
+    type: object
+  food_db.Response:
+    properties:
+      I2790:
+        $ref: '#/definitions/food_db.I2790'
+    type: object
+  food_db.RowItem:
+    properties:
+      DESC_KOR:
+        type: string
+      FOOD_CD:
+        type: string
+      GROUP_NAME:
+        type: string
+      MAKER_NAME:
+        type: string
+      NUM:
+        type: integer
+      NUTR_CONT1:
+        type: number
+      NUTR_CONT2:
+        type: number
+      NUTR_CONT3:
+        type: number
+      NUTR_CONT4:
+        type: number
+      NUTR_CONT5:
+        type: number
+      NUTR_CONT6:
+        type: number
+      NUTR_CONT7:
+        type: number
+      NUTR_CONT8:
+        type: number
+      NUTR_CONT9:
+        type: number
+      RESEARCH_YEAR:
+        type: string
+      SAMPLING_MONTH_CD:
+        type: string
+      SAMPLING_MONTH_NAME:
+        type: string
+      SAMPLING_REGION_CD:
+        type: string
+      SAMPLING_REGION_NAME:
+        type: string
+      SERVING_SIZE:
+        type: integer
+      SUB_REF_NAME:
+        type: string
+    type: object
+  food_db.StatusResult:
+    properties:
+      CODE:
+        type: string
+      MSG:
+        type: string
+    type: object
+host: localhost:8080
+info:
+  contact:
+    email: sunjin7725@gmail.com
+    name: Seon Jin Kim
+    url: https://sunjin7725.github.io
+  description: Sample API for food db.
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  title: Food DB API
+  version: "1.0"
+paths:
+  /foodData:
+    get:
+      consumes:
+      - application/json
+      description: get food data
+      parameters:
+      - description: page
+        in: query
+        name: page
+        type: string
+      - description: per page
+        in: query
+        name: perPage
+        type: string
+      - description: search keyword
+        in: query
+        name: searchKeyword
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/food_db.Response'
+        "400":
+          description: Request Error
+          schema:
+            type: string
+        "404":
+          description: Not Found Error
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      summary: Get food data
+      tags:
+      - food
+securityDefinitions:
+  BasicAuth:
+    type: basic
+swagger: "2.0"
