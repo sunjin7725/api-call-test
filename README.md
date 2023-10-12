@@ -35,7 +35,7 @@ Language: Go 1.21.1
 - [x] 식품영양성분 Open API 호출
 - [x] 호출 결과 Model을 Structure로 구성하여 객체화 하기
 - [x] [Gin](https://github.com/gin-gonic/gin) Web Framework를 활용하여 Restful API 화(사용하기 편하도록)
-- [ ] Swagger를 통해 API 문서 정리
+- [x] Swagger를 통해 API 문서 정리
 - [ ] Rasberry pi 내, 도커에 배포하기
 
 ### 추가예정(?)
