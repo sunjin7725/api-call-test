@@ -4,8 +4,9 @@ RUN mkdir /app
 
 COPY ../ /app
 
-WORKDIR /app
-RUN go mod tidy && go build /app/app /app/cmd
-RUN chmod +x /app/app
+CMD ["/bin/bash"]
+# WORKDIR /app
+# RUN go mod tidy && go build /app/app /app/cmd
+# RUN chmod +x /app/app
 
-CMD [ "/app/app" ]
+# CMD [ "/app/app" ]
