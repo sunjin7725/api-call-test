@@ -19,12 +19,10 @@ type Config struct {
 func LoadConfig() Config {
 	os.Setenv("ENV", "dev")
 	_, current_file_path, _, _ := runtime.Caller(0)
-	dir_path_slice := strings.Split(path.Dir(current_file_path), string(os.PathSeparator))
-	dir_path_slice = append(dir_path_slice, "config."+os.Getenv("ENV")+".toml")
-	config_file_path := path.Join(dir_path_slice...)
+	configFilePath := strings.Join([]string{path.Dir(current_file_path), "config." + os.Getenv("ENV") + ".toml"}, string(os.PathSeparator))
 	var config Config
 
-	viper.SetConfigFile(config_file_path)
+	viper.SetConfigFile(configFilePath)
 	err := viper.ReadInConfig()
 	if err != nil {
 		panic(fmt.Errorf("fatal error config file: %w", err))
