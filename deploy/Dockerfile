@@ -2,11 +2,10 @@ FROM golang
 
 RUN mkdir /app
 
-COPY ../ /app
+COPY $GOPATH/src/github.com/sunjin7725/api-call-test $GOPATH/src/github.com/sunjin7725/api-call-test
 
-CMD ["/bin/bash"]
-# WORKDIR /app
-# RUN go mod tidy && go build /app/app /app/cmd
-# RUN chmod +x /app/app
+WORKDIR $GOPATH/src/github.com/sunjin7725/api-call-test
+RUN go mod tidy && go build /app/app $GOPATH/src/github.com/sunjin7725/api-call-test/cmd
+RUN chmod +x /app/app
 
-# CMD [ "/app/app" ]
+CMD [ "/app/app" ]
