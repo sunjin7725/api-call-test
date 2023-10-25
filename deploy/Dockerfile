@@ -7,7 +7,7 @@ COPY ./ $GOPATH/src/github.com/sunjin7725/api-call-test
 
 WORKDIR $GOPATH/src/github.com/sunjin7725/api-call-test
 
-RUN go mod tidy && go build /app/app $GOPATH/src/github.com/sunjin7725/api-call-test/cmd
-RUN chmod +x /app/app
+RUN go mod tidy && go build /app/app.exe $GOPATH/src/github.com/sunjin7725/api-call-test/cmd
+RUN chmod +x /app/app.exe
 
 CMD [ "/app/app" ]
