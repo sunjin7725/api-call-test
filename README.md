@@ -37,6 +37,7 @@ Language: Go 1.21.1
 - [x] [Gin](https://github.com/gin-gonic/gin) Web Framework를 활용하여 Restful API 화(사용하기 편하도록)
 - [x] Swagger를 통해 API 문서 정리
 - [ ] Rasberry pi 내, 도커에 배포하기
+  - docker build --no-cache -t api-call-test:v0.1 -f^Ceploy/Dockerfile .
 
 ### 추가예정(?)
 
