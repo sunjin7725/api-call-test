@@ -2,3 +2,4 @@ config.*.toml
 *.exe
 .idea
 .vscode
+docs

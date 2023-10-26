@@ -21,7 +21,7 @@ import (
 //	@license.name	Apache 2.0
 //	@license.url	http://www.apache.org/licenses/LICENSE-2.0.html
 
-//	@host		sunjin7725.iptiem.org:8080
+//	@host		sunjin7725.iptime.org:8080
 //	@BasePath	/
 
 // @securityDefinitions.basic	BasicAuth
