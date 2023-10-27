@@ -20,7 +20,7 @@ Language: Go 1.21.1
 
 - Go
 - Gin
-- Docker Compose
+- Docker
 
 ### 기능 추가가 된다면
 
